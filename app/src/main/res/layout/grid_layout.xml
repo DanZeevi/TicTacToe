@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <import type="com.zdan.tictactoe.WinnerFormEnum"/>
+
+        <variable
+            name="grid"
+            type="com.zdan.tictactoe.Grid" />
+        <variable
+            name="viewModel"
+            type="com.zdan.tictactoe.GameViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:background="@color/colorBackground">
+
+        <ImageButton
+            android:id="@+id/squareBtn4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/SquareTheme"
+            android:src="@{grid.gridLiveData.get(4)}"
+            tools:src="@drawable/ic_x"
+            android:onClick="@{() -> viewModel.turn(4)}"/>
+
+        <ImageButton
+            android:id="@+id/squareBtn1"
+            app:layout_constraintBottom_toTopOf="@+id/squareBtn4"
+            app:layout_constraintStart_toStartOf="@+id/squareBtn4"
+            app:layout_constraintEnd_toEndOf="@+id/squareBtn4"
+            style="@style/SquareTheme"
+            android:src="@{grid.gridLiveData.get(1)}"
+            android:onClick="@{() -> viewModel.turn(1)}"/>
+
+        <ImageButton
+            android:id="@+id/squareBtn0"
+            app:layout_constraintTop_toTopOf="@+id/squareBtn1"
+            app:layout_constraintBottom_toBottomOf="@id/squareBtn1"
+            app:layout_constraintEnd_toStartOf="@+id/squareBtn1"
+            style="@style/SquareTheme"
+            android:src="@{grid.gridLiveData.get(0)}"
+            tools:src="@drawable/ic_o"
+            android:onClick="@{() -> viewModel.turn(0)}"/>
+
+        <ImageButton
+            android:id="@+id/squareBtn2"
+            app:layout_constraintTop_toTopOf="@+id/squareBtn1"
+            app:layout_constraintBottom_toBottomOf="@id/squareBtn1"
+            app:layout_constraintStart_toEndOf="@+id/squareBtn1"
+            style="@style/SquareTheme"
+            android:src="@{grid.gridLiveData.get(2)}"
+            android:onClick="@{() -> viewModel.turn(2)}"/>
+
+        <ImageButton
+            android:id="@+id/squareBtn3"
+            app:layout_constraintTop_toTopOf="@+id/squareBtn4"
+            app:layout_constraintBottom_toBottomOf="@id/squareBtn4"
+            app:layout_constraintEnd_toStartOf="@+id/squareBtn4"
+            style="@style/SquareTheme"
+            android:src="@{grid.gridLiveData.get(3)}"
+            tools:src="@drawable/ic_x"
+            android:onClick="@{() -> viewModel.turn(3)}"/>
+
+        <ImageButton
+            android:id="@+id/squareBtn5"
+            app:layout_constraintTop_toTopOf="@+id/squareBtn4"
+            app:layout_constraintBottom_toBottomOf="@id/squareBtn4"
+            app:layout_constraintStart_toEndOf="@+id/squareBtn4"
+            style="@style/SquareTheme"
+            android:src="@{grid.gridLiveData.get(5)}"
+            tools:src="@drawable/ic_x"
+            android:onClick="@{() -> viewModel.turn(5)}"/>
+        <ImageButton
+            android:id="@+id/squareBtn7"
+            app:layout_constraintTop_toBottomOf="@+id/squareBtn4"
+            app:layout_constraintStart_toStartOf="@+id/squareBtn4"
+            app:layout_constraintEnd_toEndOf="@+id/squareBtn4"
+            style="@style/SquareTheme"
+            android:src="@{grid.gridLiveData.get(7)}"
+            android:onClick="@{() -> viewModel.turn(7)}"/>
+
+        <ImageButton
+            android:id="@+id/squareBtn6"
+            app:layout_constraintTop_toTopOf="@+id/squareBtn7"
+            app:layout_constraintBottom_toBottomOf="@id/squareBtn7"
+            app:layout_constraintEnd_toStartOf="@+id/squareBtn7"
+            style="@style/SquareTheme"
+            android:src="@{grid.gridLiveData.get(6)}"
+            tools:src="@drawable/ic_o"
+            android:onClick="@{() -> viewModel.turn(6)}"/>
+
+        <ImageButton
+            android:id="@+id/squareBtn8"
+            app:layout_constraintTop_toTopOf="@+id/squareBtn7"
+            app:layout_constraintBottom_toBottomOf="@id/squareBtn7"
+            app:layout_constraintStart_toEndOf="@+id/squareBtn1"
+            style="@style/SquareTheme"
+            android:src="@{grid.gridLiveData.get(8)}"
+            android:onClick="@{() -> viewModel.turn(8)}"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/divider"
+            app:layout_constraintStart_toEndOf="@id/squareBtn0"
+            app:layout_constraintEnd_toStartOf="@id/squareBtn1"
+            app:layout_constraintTop_toTopOf="@id/squareBtn0"
+            app:layout_constraintBottom_toBottomOf="@id/squareBtn6"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/divider"
+            app:layout_constraintStart_toEndOf="@id/squareBtn1"
+            app:layout_constraintEnd_toStartOf="@id/squareBtn2"
+            app:layout_constraintTop_toTopOf="@id/squareBtn1"
+            app:layout_constraintBottom_toBottomOf="@id/squareBtn7"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/divider"
+            app:layout_constraintStart_toStartOf="@id/squareBtn0"
+            app:layout_constraintEnd_toEndOf="@id/squareBtn2"
+            app:layout_constraintTop_toBottomOf="@id/squareBtn0"
+            app:layout_constraintBottom_toTopOf="@id/squareBtn3"/>
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:background="@drawable/divider"
+            app:layout_constraintStart_toStartOf="@id/squareBtn0"
+            app:layout_constraintEnd_toEndOf="@id/squareBtn2"
+            app:layout_constraintTop_toBottomOf="@id/squareBtn3"
+            app:layout_constraintBottom_toTopOf="@id/squareBtn6"/>
+
+            <View
+                android:id="@+id/lineHorizontal0"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/width_strike"
+                app:layout_constraintStart_toStartOf="@id/squareBtn0"
+                app:layout_constraintEnd_toEndOf="@id/squareBtn2"
+                app:layout_constraintTop_toTopOf="@id/squareBtn0"
+                app:layout_constraintBottom_toBottomOf="@id/squareBtn0"
+                android:visibility="@{viewModel.winnerFormLiveData == WinnerFormEnum.Horizontal0}"
+                tools:visibility="gone"
+                style="@style/HorizontalStrike"/>
+
+            <View
+                android:id="@+id/lineHorizontal1"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/width_strike"
+                app:layout_constraintStart_toStartOf="@id/squareBtn0"
+                app:layout_constraintEnd_toEndOf="@id/squareBtn2"
+                app:layout_constraintTop_toTopOf="@id/squareBtn3"
+                app:layout_constraintBottom_toBottomOf="@id/squareBtn3"
+                android:visibility="@{viewModel.winnerFormLiveData == WinnerFormEnum.Horizontal1}"
+                style="@style/HorizontalStrike"/>
+
+            <View
+                android:id="@+id/lineHorizontal2"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/width_strike"
+                app:layout_constraintStart_toStartOf="@id/squareBtn0"
+                app:layout_constraintEnd_toEndOf="@id/squareBtn2"
+                app:layout_constraintTop_toTopOf="@id/squareBtn6"
+                app:layout_constraintBottom_toBottomOf="@id/squareBtn6"
+                android:visibility="@{viewModel.winnerFormLiveData == WinnerFormEnum.Horizontal2}"
+                tools:visibility="gone"
+                style="@style/HorizontalStrike"/>
+
+            <View
+                android:id="@+id/lineVertical0"
+                android:layout_width="@dimen/width_strike"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="@id/squareBtn0"
+                app:layout_constraintEnd_toEndOf="@id/squareBtn0"
+                app:layout_constraintTop_toTopOf="@id/squareBtn0"
+                app:layout_constraintBottom_toBottomOf="@id/squareBtn6"
+                android:visibility="@{viewModel.winnerFormLiveData == WinnerFormEnum.Vertical0}"
+                tools:visibility="gone"
+                style="@style/VerticalStrike"/>
+
+            <View
+                android:id="@+id/lineVertical1"
+                android:layout_width="@dimen/width_strike"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="@id/squareBtn1"
+                app:layout_constraintEnd_toEndOf="@id/squareBtn1"
+                app:layout_constraintTop_toTopOf="@id/squareBtn0"
+                app:layout_constraintBottom_toBottomOf="@id/squareBtn6"
+                android:visibility="@{viewModel.winnerFormLiveData == WinnerFormEnum.Vertical1}"
+                tools:visibility="gone"
+                style="@style/VerticalStrike"/>
+
+            <View
+                android:id="@+id/lineVertical2"
+                android:layout_width="@dimen/width_strike"
+                android:layout_height="0dp"
+                app:layout_constraintStart_toStartOf="@id/squareBtn2"
+                app:layout_constraintEnd_toEndOf="@id/squareBtn2"
+                app:layout_constraintTop_toTopOf="@id/squareBtn0"
+                app:layout_constraintBottom_toBottomOf="@id/squareBtn6"
+                android:visibility="@{viewModel.winnerFormLiveData == WinnerFormEnum.Vertical2}"
+                tools:visibility="gone"
+                style="@style/VerticalStrike"/>
+
+            <ImageView
+                android:id="@+id/lineDiagonalMain"
+                android:layout_width="@dimen/size_diagonal"
+                android:layout_height="@dimen/size_diagonal"
+                app:layout_constraintStart_toStartOf="@id/squareBtn0"
+                app:layout_constraintEnd_toEndOf="@id/squareBtn8"
+                app:layout_constraintTop_toTopOf="@id/squareBtn0"
+                app:layout_constraintBottom_toBottomOf="@id/squareBtn8"
+                android:src="@drawable/diagonal_main"
+                style="@style/DiagonalStrike"
+                android:visibility="@{viewModel.winnerFormLiveData == WinnerFormEnum.DiagonalMain}"
+                tools:visibility="gone"
+                android:contentDescription="@string/diagonal_strike"/>
+
+
+            <ImageView
+                android:id="@+id/lineDiagonalInverse"
+                android:layout_width="@dimen/size_diagonal"
+                android:layout_height="@dimen/size_diagonal"
+                app:layout_constraintStart_toStartOf="@id/squareBtn0"
+                app:layout_constraintEnd_toEndOf="@id/squareBtn8"
+                app:layout_constraintTop_toTopOf="@id/squareBtn0"
+                app:layout_constraintBottom_toBottomOf="@id/squareBtn8"
+                android:src="@drawable/diagonal_inverse"
+                style="@style/DiagonalStrike"
+                android:visibility="@{viewModel.winnerFormLiveData == WinnerFormEnum.DiagonalInverse}"
+                tools:visibility="gone"
+                android:contentDescription="@string/diagonal_strike"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

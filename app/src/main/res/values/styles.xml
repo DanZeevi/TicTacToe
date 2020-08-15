@@ -1,0 +1,44 @@
+<resources>
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="SquareTheme" parent="TextAppearance.AppCompat.Button">
+        <item name="android:layout_width">@dimen/size_square</item>
+        <item name="android:layout_height">@dimen/size_square</item>
+        <item name="android:layout_margin">@dimen/margin_square</item>
+        <item name="android:background">@color/colorBackground</item>
+    </style>
+
+    <style name="StatusTheme" parent="TextAppearance.AppCompat.Headline">
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="Strike">
+
+        <item name="android:translationZ">1dp</item>
+    </style>
+
+    <style name="LineStrike" parent="Strike">
+        <item name="android:background">@drawable/divider</item>
+        <item name="android:backgroundTint">@color/colorStrike</item>
+    </style>
+
+    <style name="HorizontalStrike" parent="LineStrike">
+    </style>
+
+    <style name="VerticalStrike" parent="LineStrike">
+    </style>
+
+    <style name="DiagonalStrike" parent="Strike">
+    </style>
+
+    <color name="colorStrike">#000000</color>
+</resources>

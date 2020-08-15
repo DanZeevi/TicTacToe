@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="size_square">80dp</dimen>
+    <dimen name="margin_square">8dp</dimen>
+    <dimen name="margin_grid_layout">20dp</dimen>
+    <dimen name="size_square_symbol">80dp</dimen>
+    <dimen name="width_strike">12dp</dimen>
+    <dimen name="size_diagonal">350dp</dimen>
+    <dimen name="margin_grid_layout_land">8dp</dimen>
+</resources>

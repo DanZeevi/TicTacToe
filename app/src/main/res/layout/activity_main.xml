@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
+<data>
+    <variable
+        name="game"
+        type="com.zdan.tictactoe.GameViewModel" />
+</data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/grid_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="30dp"
+        tools:text="Game on!"
+        android:text="@{game.gameStatusLiveData}"
+        style="@style/StatusTheme"/>
+
+    <include
+        android:id="@+id/grid_layout"
+        layout="@layout/grid_layout"
+        bind:grid="@{game.grid}"
+        bind:viewModel="@{game}"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/margin_grid_layout"
+        app:layout_constraintTop_toBottomOf="@id/resultText"
+        app:layout_constraintBottom_toTopOf="@id/btnNewGame"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <Button
+        android:id="@+id/btnNewGame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="20dp"
+        android:text="@string/txt_btn_new_game"
+        android:backgroundTint="@color/colorGrid"
+        android:textColor="@color/colorBackground"
+        android:onClick="@{() -> game.newGame()}"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
